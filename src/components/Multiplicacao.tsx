@@ -15,20 +15,20 @@ export default function Multiplicacao() {
     return (
         <View>
 
-            <Text>Nome: </Text>
+            <Text>VALOR 1: </Text>
             <TextInput placeholder="Digite o primeiro valor: "
                 value={valor1}
                 onChangeText={(text) => { setValor1(text) }}
 
             />
-            <Text>Idade: </Text>
+            <Text>VALOR 2: </Text>
             <TextInput placeholder="Digite o segundo valor: "
                 value={valor2}
                 onChangeText={(Text) => { setValor2(Text) }}
 
             />
 
-            <Text>Turma: </Text>
+            <Text>VALOR 3: </Text>
             <TextInput placeholder="Digite o terceiro valor: "
                 value={valor3}
                 onChangeText={(text) => { setValor3(text) }}
