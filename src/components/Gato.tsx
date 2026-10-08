@@ -9,6 +9,7 @@ const Gato = () => {
 
     return (
         <View>
+            
             <Text>Gato {nome()}</Text>
         </View>
 
