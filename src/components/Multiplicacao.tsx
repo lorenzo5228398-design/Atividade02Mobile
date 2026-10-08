@@ -1,21 +1,48 @@
-import { Text, View } from "react-native";
+import { useState } from "react";
+import { Alert, Pressable, Text, TextInput, View } from "react-native";
 
 
-type MultProps = {
-    valor1: number;
-    valor2: number;
-    valor3: number;
+export default function Multiplicacao() {
+
+    const acionarPopUp = () => {
+        const valor = (Number(valor1) * Number(valor2) * Number(valor3))
+        Alert.alert("Valor final: " + valor);
+    }
+    const [valor1, setValor1] = useState('');
+    const [valor2, setValor2] = useState('');
+    const [valor3, setValor3] = useState('');
+
+    return (
+        <View>
+
+            <Text>Nome: </Text>
+            <TextInput placeholder="Digite o primeiro valor: "
+                value={valor1}
+                onChangeText={(text) => { setValor1(text) }}
+
+            />
+            <Text>Idade: </Text>
+            <TextInput placeholder="Digite o segundo valor: "
+                value={valor2}
+                onChangeText={(Text) => { setValor2(Text) }}
+
+            />
+
+            <Text>Turma: </Text>
+            <TextInput placeholder="Digite o terceiro valor: "
+                value={valor3}
+                onChangeText={(text) => { setValor3(text) }}
+
+            />
 
 
-}
 
-export default function Multiplicacao(props: MultProps) {
+            <Pressable onPress={acionarPopUp}>
+                <Text>Clique aqui para mostrar</Text>
+            </Pressable>
 
-    return (<View>
-        <Text>
-            Valor final: {props.valor1 * props.valor2 * props.valor3} 
-        </Text>
-        
-    </View>)
+        </View >
+    )
+
 
 }

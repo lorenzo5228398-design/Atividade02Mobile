@@ -1,3 +1,5 @@
+import Aluno from "@/components/Aluno";
+import Multiplicacao from "@/components/Multiplicacao";
 import Pessoa from "@/components/Pessoa";
 import { useState } from "react";
 import { Alert, Image, Pressable, StyleSheet, View } from "react-native";
@@ -20,6 +22,12 @@ export default function Index() {
       }}>
       </Pressable>
       <Pessoa />
+
+
+      <Aluno />
+
+
+      <Multiplicacao />
 
 
       <Image source={{ uri: "https://i.pinimg.com/originals/fd/c0/fb/fdc0fb6914df284f053e9a54c3e2bd72.png" }}
