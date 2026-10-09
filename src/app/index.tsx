@@ -1,8 +1,6 @@
-import Aluno from "@/components/Aluno";
-import Multiplicacao from "@/components/Multiplicacao";
-import Pessoa from "@/components/Pessoa";
+import ExemploStyle_View from "@/components/ExemploStyle_View";
 import { useState } from "react";
-import { Alert, Image, Pressable, StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 
 export default function Index() {
   const [nome, setNome] = useState('');
@@ -16,23 +14,23 @@ export default function Index() {
 
     <View style={styles.container}>
 
-      <Pressable onPress={() => {
-        Alert.alert(`Campo${campo}`)
-        console.log('Olá terminal')
-      }}>
-      </Pressable>
-      <Pessoa />
+      {/* <Pessoa />
 
 
       <Aluno />
 
 
-      <Multiplicacao />
+      <Multiplicacao /> */}
+      {/* <ExemploStyle_Text /> */}
+
+      <ExemploStyle_View />
+      {/* <ExemploStyle_View2/>
+   <ExemploStyle_View3/> */}
 
 
-      <Image source={{ uri: "https://i.pinimg.com/originals/fd/c0/fb/fdc0fb6914df284f053e9a54c3e2bd72.png" }}
+      {/* <Image source={{ uri: "https://i.pinimg.com/originals/fd/c0/fb/fdc0fb6914df284f053e9a54c3e2bd72.png" }}
         style={{ width: 200, height: 200 }}
-      />
+      /> */}
 
 
     </View>
@@ -42,7 +40,6 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+
   },
 });
