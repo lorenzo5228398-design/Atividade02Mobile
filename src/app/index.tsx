@@ -1,6 +1,6 @@
 import Aluno from "@/components/Aluno";
 import { useState } from "react";
-import { Alert, Pressable, StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 
 export default function Index() {
   const [nome, setNome] = useState('');
@@ -14,21 +14,15 @@ export default function Index() {
 
     <View style={styles.container}>
 
-      <Pressable onPress={() => {
-        Alert.alert(`Campo${campo}`)
-        console.log('Olá terminal')
-      }}>
-      </Pressable>
-    
+      
 
 
       <Aluno />
 
 
 
-
-
      
+
 
     </View>
   );
