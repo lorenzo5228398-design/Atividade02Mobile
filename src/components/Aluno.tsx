@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
-
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
 
 export default function Aluno() {
 
@@ -13,17 +12,51 @@ export default function Aluno() {
     const [media, setMedia] = useState(0);
     const [ativado, setAtivado] = useState(false);
 
+    type Aluno = {
 
-    const acionarPopUp = () => {
-        setMedia((Number(nota1) + Number(nota2)) / 2)
-        setAtivado(true);
-        
+        nome: string,
+        idade: number,
+        turma: string,
+        nota1: number,
+        nota2: number
 
     }
 
+    const aluno1 = { nome: "Roberto", idade: 12, turma: "A1", nota1: 10, nota2: 4 }
+    const aluno2 = { nome: "Anaconda", idade: 11, turma: "A2", nota1: 5, nota2: 4 }
+    const aluno3 = { nome: "Jorge", idade: 14, turma: "A1", nota1: 10, nota2: 10 }
+    const aluno4 = { nome: "Robson", idade: 15, turma: "A2", nota1: 2, nota2: 4 }
+
+    const lista: Aluno[] = [aluno1, aluno2, aluno3, aluno4]
+
+    const mostrarAlunos = () => (
+        <FlatList
+            data={lista}
+            renderItem={({ item }) => {
+                const mediaAluno = (item.nota1 + item.nota2) / 2;
+
+                return (
+                    <View style={[styles.itemContainer, { backgroundColor: '#0b74b1'}]}>
+                        <Text>Nome: {item.nome}</Text>
+                        <Text>Turma: {item.turma} | Idade: {item.idade}</Text>
+                        <Text>Média: {mediaAluno}</Text>
+                        <Text>
+                            Status: {mediaAluno >= 7 ? "Aprovado!!" : "Reprovado!!"}
+                        </Text>
+                    </View>
+                );
+            }}
+        />
+    );
+
+    const acionarPopUp = () => {
+        setMedia((Number(nota1) + Number(nota2)) / 2);
+        setAtivado(true);
+    };
+
     return (
         <View>
-
+            {/* 
             <Text>Nome: </Text>
             <TextInput placeholder="Digite seu nome: "
                 value={nome}
@@ -59,10 +92,11 @@ export default function Aluno() {
                 keyboardType="numeric"
             />
 
-            <Pressable onPress={acionarPopUp}>
-                <Text>Clique aqui para mostrar</Text>
-            </Pressable>
-            <Text>
+            // <Pressable onPress={acionarPopUp}>
+            //     <Text>Clique aqui para mostrar</Text>
+            // </Pressable> */}
+
+            {/* <Text>
 
 
 
@@ -86,8 +120,39 @@ export default function Aluno() {
                 }
 
 
-            </Text>
+            </Text> */}
+
+
+
+
+
+            {ativado && mostrarAlunos()}
+
+            <Button title="Mostrar alunos"
+                onPress={acionarPopUp}
+                color="#007BFF" />
+
         </View >
     )
 
+
+
+
 }
+
+const styles = StyleSheet.create({
+    itemContainer: {
+        padding: 15,
+        marginBottom: 12,
+        borderRadius: 8,
+        borderWidth: 1,
+        borderColor: '#ccc',
+    },
+    texto: {
+        fontSize: 16,
+        color: '#333',
+        marginBottom: 4,
+    }
+});
+
+
